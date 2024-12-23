@@ -1,5 +1,5 @@
 <?php 
-include "./db/database.php";
+include "./controller/db/database.php";
 
 session_start(); // Start the session to store error messages
 
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (password_verify($password, $user['mot_de_passe'])) {
                 echo "Login successful! Welcome, " . htmlspecialchars($user['nom_utilisateur']);
                 // Redirect to dashboard or any page
-                header("Location: admin_dashboard.php");
+                header("Location: ./view/admin_dashboard.php");
                 exit();
             } else {
                 $_SESSION['error'] = "Invalid username or password.";
